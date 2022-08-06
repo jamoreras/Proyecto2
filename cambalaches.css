@@ -1,0 +1,9 @@
+.width-50 img {
+    /*una herencia para las imagenes que estan contenidas en una clase width-50, border solid*/
+    border: solid;
+    width: 100%;
+}
+
+.mb-60px {
+    margin-bottom: 60px;
+}

@@ -1,0 +1,189 @@
+body {
+    /* le da forma a la letra de los botones de la derecha*/
+    font-size: 12px;
+    font-family: "Open Sans (https://fonts.google.com/specimen/Open+Sans)";
+    /* pone un tipo de letra*/
+}
+
+button {
+    /* le da forma al boton de mi carrito*/
+    font-size: 11px;
+    padding: 3px 10px 3px 10px;
+    /*trbl*/
+    color: white;
+    background-color: rgb(96 96 96);
+    border-radius: 3px;
+    /*borde rendondito a los botones, y le quita las esquinas*/
+}
+
+.menu {
+    /* da color gris al menu*/
+    background: #ffffff;
+}
+
+.img-navbar {
+    /*imagencita de la izquierda */
+    position: absolute;
+    left: 260px;
+    top: 8px;
+}
+
+.ul-navbar {
+    /* manda los botonoes navbar a la derecha*/
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px;
+}
+
+.ul-navbar li {
+    /* acomoda las opciones de inicio para que no quden todas pegadas , para todos los Li hijos de una clase ul-navbar*/
+    margin-right: 30px;
+}
+
+footer ul {
+    /* centra el footer, para todos los ul dentro de un footer*/
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+footer li {
+    /* le da espacios al footer  */
+    margin-right: 30px;
+}
+
+a {
+    /* links de color rojo*/
+    font-size: 11px;
+    Color: #c95555
+}
+
+
+.titulo-1 {
+    /*titulos*/
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.titulo-2 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.parrafo {
+    padding: 10px;
+}
+
+
+
+.width-70
+
+/*deja margen a los 2 lados, offset*/
+    {
+    background-color: white;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.width-50 {
+    /*divide el contenido de la pantalla en  2 */
+    width: 44%;
+    margin: 1% 1% 1% 3%;
+}
+
+select.width-50 {
+    /* divide el contenido de la pantalla en  2  solo par los select de country */
+    height: 21px;
+    width: 45%;
+    margin: 1% 1% 1% 3%;
+}
+
+.width-100 {
+    /* toma todo el tamano de la pantalla completo, direccion de registro de usuario etc*/
+    width: 93%;
+    margin: 1% 1% 1% 3%;
+}
+
+.width-33 {
+    /* divide el contenido de la pantalla en 3*/
+    width: 29%;
+    margin: 1% 2% 1% 2%;
+
+}
+
+.display-inline-block {
+    /* esta clase coloca elementos en una sola linea*/
+    display: inline-block;
+}
+
+.button-grande {
+    /*hace los botones mas grandes*/
+    height: 40px;
+    width: 120px;
+    margin-left: 27px
+}
+
+.m-0 {
+    /*reseta los margenes a 0*/
+    margin: 0;
+}
+
+
+.btn-gclaro {
+    /* hace los botones gris claro*/
+    background-color: rgba(196, 195, 195, 0.75);
+    color: rgba(128, 128, 128, 1);
+}
+
+.bc-gris {
+    /*da a los titulos el color gris del background*/
+    background-color: rgba(196, 195, 195, 0.75);
+
+}
+
+.mb-20px {
+    /* da margen bottom de 20px*/
+    margin-bottom: 20px;
+
+}
+
+.mb-50px {
+    /* da margen bottom de 50px*/
+    margin-bottom: 50px;
+}
+
+.mt-20px {
+    /* da margen top de 20px*/
+    margin-top: 20px;
+
+}
+
+.mt-50px {
+    /* da margen top de 50px*/
+    margin-top: 50px;
+
+}
+
+.pt-20px {
+    /*da un padding por dentro de elemento de 20 px*/
+    padding-top: 20px;
+}
+
+.pt-50px {
+    /*da un padding por dentro de elemento de 50 px*/
+    padding-top: 50px;
+}
+
+
+.mp-20px {
+    /*da un padding por dentro de elemento de 20 px*/
+    padding-bottom: 20px;
+}
+
+.pb-20px {
+    /*da un padding por dentro de elemento de 20 px*/
+    padding-bottom: 20px;
+}
