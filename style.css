@@ -187,3 +187,19 @@ select.width-50 {
     /*da un padding por dentro de elemento de 20 px*/
     padding-bottom: 20px;
 }
+
+
+  form span {
+    display: none;
+    text-align: left;
+    font-size: 1em;
+    color:red;
+  }
+  
+  span.visible {
+    display: block;
+  }
+  
+  input.invalid {
+    border-color: red;
+  }
