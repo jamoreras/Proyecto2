@@ -1,10 +1,8 @@
 $(document).on('ready', function () {
 
     $(".btnRegistrarse").on('click', function (event) {
-
         event.preventDefault();
         addUser();
-
     });
     function addUser() {
 
@@ -31,7 +29,6 @@ $(document).on('ready', function () {
         }
 
         if (validate(user,usersDb)){
-
             usersDb.push(user);// inserta el nuevo objeto en la lista
             localStorage.setItem('users', JSON.stringify(usersDb));// remplaza el obj usuario por la lista modificada
             window.location.href = "./login.html"

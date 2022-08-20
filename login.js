@@ -1,37 +1,33 @@
-$(document).on('ready', function () {
-
+$(document).on('ready', function () {//el ejecuta el codigo hasta que el doc cargue por completo
 
     $(".btnIngresar").on('click', function (event) {
-
-        event.preventDefault();
+        event.preventDefault(); // previene el submit del formulario, para que no lo mande por el url
         login();
-
-
-
     });
     function login() {
 
-        //insert to a database
-        let usersDb = JSON.parse(localStorage.getItem('users'));
-        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn')); //revisa si existe una lista de users en el local storage
-        if (userLoggedIn) {
-            window.location.href = "./index.html"
+        //json parce transforma string a objeto
+        let usersDb = JSON.parse(localStorage.getItem('users')); //revisa si existe una lista de users
+        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn')); //revisa si existe un user loggeado d-none
+        if (userLoggedIn) {//booleano 
+            window.location.href = "./dashboard.html"
         }
         else{
-            userLoggedIn = []
+            userLoggedIn = []//cambia la variable ''null'' por un arreglo vacio
         }
         
         
         const userLogIn = { //crea un objeto usuario con los valores de las cajas de texto del form 
+            id:null,
             email: $('.txtEmail').val(),
             password: $('.txtPassword').val(),
             name:null
         }
 
-        if (validate(userLogIn,usersDb)){
-            userLoggedIn.push(userLogIn);
-            localStorage.setItem('userLoggedIn', JSON.stringify(userLoggedIn));// remplaza el obj usuario por la lista modificada
-            window.location.href = "./index.html"
+        if (validate(userLogIn,usersDb)){ //valida si el usuario esta en el local storage y si cumple el formato del correo
+            userLoggedIn.push(userLogIn); //json stringify pasa de objeto a string
+            localStorage.setItem('userLoggedIn', JSON.stringify(userLoggedIn));// agrega el obj usuario al loggearse
+            window.location.href = "./dashboard.html"
         }
     }
 
@@ -40,8 +36,9 @@ $(document).on('ready', function () {
         userList.forEach((user) => {
             if (user.email == userLogIn.email){
                 if (user.password == userLogIn.password){
-                    userLogIn.name= user.name
-                validate = true;
+                    userLogIn.name= user.name;
+                    userLogIn.id=user.id;
+                    validate = true;
                 }
             }
         })
@@ -85,7 +82,6 @@ $(document).on('ready', function () {
             }
             else
             {
-                
                 $("span.logIn").removeClass("visible");
                 $('.logIn').removeClass("invalid");
                 $('span.logIn').attr("aria-hidden", true);

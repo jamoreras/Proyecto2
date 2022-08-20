@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuevoProducto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10 col-md-10 col-sm-12">
+                <!-- navbar -->
+                <nav class="navbar navbar-expand-lg bg-primary bg-opacity-75      ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img class="" src="images/canadienses.png" style="width:64px;height:64px;">
+                        </a>
+                        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                            <ul class="navbar-nav bienvenidoNavBar d-none">
+                                <li class="nav-item dropdown me-auto mb-2 mb-lg-0">
+                                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span>Bienvenido <b class="userNameLogged"></b></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item " onclick="logOut()">Cerrar Sesión</a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/Workshops/Proyecto2/index.html">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white"
+                                        href="/Workshops/Proyecto2/cambalaches.html">Cambalaches</a>
+                                </li>
+                                <li class="nav-item desloggeado">
+                                    <a class="nav-link text-white" href="/Workshops/Proyecto2/login.html">Ingresar</a>
+                                </li>
+                                <li class="nav-item loggeado d-none">
+                                    <a class="nav-link text-white"
+                                        href="/Workshops/Proyecto2/Dashboard.html">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn btn-light text-black " href=""> &#128722; Mi carrito </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <div class="py-5 bg-secondary bg-opacity-25">
+                    <div class="titulo-1 text-center ">Nuevo producto</div>
+                    <div class="parrafo text-center">Ingrese qui la informacion del producto que desea incluir en
+                        Cambalache.net.
+                    </div>
+                </div>
+                <br>
+                <form class="py-5" method="post" action="/login.html">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <input class="form-control mb-2 txtName" type="text " placeholder="Nombre del producto">
+                            <span role="alert" class="txtName" aria-hidden="true">
+                                Ingrese el nombre del producto
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <textarea rows="5" class="form-control mb-2 txtDescription" type="text"
+                                placeholder="Descripcion"></textarea>
+                                <span role="alert" class="txtDescription" aria-hidden="true">
+                                    Ingrese la descripcion del producto
+                                </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <input class="form-control mb-2 txtUrl" type="text" placeholder="http://google.com/imagen.png">
+                            <span role="alert" class="txtUrl" aria-hidden="true">
+                                Ingrese el url de la imagen del producto
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                            <textarea rows="5" class="form-control mb-2 txtTrade" type="text" placeholder="Busco"></textarea>
+                            <span role="alert" class="txtTrade" aria-hidden="true">
+                                Ingrese su cambalache
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="text-center">
+                                <button class="btn btn-primary btnGuardarProducto" type="submit">Guardar</button>
+                                <button class="btn btn-danger" type="button">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class=" bg-dark ">
+            <ul>
+                <li>
+                    <a class="text-white" href="/Workshops/Proyecto2/index.html">Inicio</a>
+                </li>
+                <li>
+                    <a class="text-white" href="/Workshops/Proyecto2/cambalaches.html">Cambalaches</a>
+                </li>
+                <li>
+                    <a class="text-white" href="/Workshops/Proyecto2/login.html">Ingresar</a>
+                </li>
+            </ul>
+            <div class="parrafo text-center text-white"><i class="fa fa-copyright" aria-hidden="true"></i>
+                Cambalaches.net</div>
+            <!-- JavaScript Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+                crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+                <script src="common.js" type="text/javascript" charset="utf-8"></script>
+                <script src="product.js" type="text/javascript" charset="utf-8"></script>
+        </footer>
+
+    </div>
+</body>
+
+</html>
