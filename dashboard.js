@@ -1,6 +1,6 @@
-$(document).on('ready', function () {
+$(document).on('ready', function () {//esto ejecuta las funciones despues de cargar el html
     function cargarProductos() {
-        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));
+        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));// va al local storage y se trae los datos del usuario loggeado
         let productsDb = JSON.parse(localStorage.getItem('products')); //revisa si existe una lista de products en el local storage
         if (!productsDb) {
             productsDb = []; //si esta vacia la crea en blanco en un array
@@ -8,9 +8,9 @@ $(document).on('ready', function () {
         }
 
 
-        var htmlProduct = "";
-        productsDb.forEach((product) => {
-            if (product.owner == userLoggedIn[0].id) {
+        var htmlProduct = ""; 
+        productsDb.forEach((product) => { //recorre todos los productos
+            if (product.ownerId == userLoggedIn[0].id) {// filtro donde se compara todos los articulos de todas las personas para meter en el dashboard solo los del usuario loggeado
                 htmlProduct += '<div class="col-lg-4 col-md-4 col-sm-12 my-3">';
                 htmlProduct += '<div class="row">';
                 htmlProduct += '<div class="col-lg-6 col-md-6 col-sm-12">';
@@ -25,7 +25,7 @@ $(document).on('ready', function () {
                 htmlProduct += '</div>';
             }
         })
-        $('.listaProductos')[0].innerHTML = htmlProduct;
+        $('.listaProductos')[0].innerHTML = htmlProduct;    
 
         
     }
@@ -33,21 +33,21 @@ $(document).on('ready', function () {
 
 });
 function deleteProduct(id) {
-    debugger
-    if (confirm("Are you sure?")) {
+
+    if (confirm("Are you sure?")) { //funcion propia de js del mensajito, devuelve booleano
        
       //edit to a database
-      let products = JSON.parse(localStorage.getItem('products'));
-      let productsDb = [];
+      let products = JSON.parse(localStorage.getItem('products'));// se trae la lista de productos del localstorage
+      let newProductsDb = []; // se crea una lista nueva que va a remplazar la lista del local storage
 
-      if (products) {
-        products.forEach((products) => {
-            if(products.id != id){
-                productsDb.push(products);
+      if (products) { // se compara que la lista no traiga un null
+        products.forEach((products) => {// se recorre la lista
+            if(products.id != id){ // si no es el  producto que quiero eliminar se incerta en la nueva lista
+                newProductsDb.push(products);//inserta en la lista
             }
         });
-        localStorage.setItem('products', JSON.stringify(productsDb));
+        localStorage.setItem('products', JSON.stringify(newProductsDb)); //guarda la lisla de productos con la nueva lista (sin el producto eliminado)
       }
-      window.location.href = './dashboard.html';
+      window.location.href = './dashboard.html'; // redirecciona a dashboard
     }
 }

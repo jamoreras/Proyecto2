@@ -1,37 +1,40 @@
 $(document).on('ready', function () {
-    const urlParams = new URLSearchParams(window.location.search);
     let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));
-    var editId=urlParams.get("id");
-    if (editId){
+    const urlParams = new URLSearchParams(window.location.search);//obtiene todos los parametros de la url
+    var editProductId=urlParams.get("id");//Obtiene el valor del parametro id
+    if (editProductId){
         let productsDb = JSON.parse(localStorage.getItem('products')); 
         var existe =false;
         productsDb.forEach((product) => {
-            if (editId== product.id)
+            if (editProductId== product.id)
             {
-                if( product.owner==userLoggedIn[0].id){
+                if( product.ownerId==userLoggedIn[0].id){
                     $('.txtName').val(product.name),
                     $('.txtDescription').val(product.description),
                     $('.txtUrl').val(product.url),
-                    $('.txtTrade').val(product.trade)
+                    $('.txtTrade').val(product.trade),
+                    $('.editandoProducto').text("Editando producto # "+product.id)
                 }else{
-                    window.location.href = "./dashboard.html";
+                    history.back();// por si quieren cambiar el id del url
+                    //window.location.href = "./dashboard.html";
                 }
                 existe=true;
             }
         });
         if(!existe){
-            window.location.href = "./dashboard.html";
+            history.back();
+           // window.location.href = "./dashboard.html";
         }
     
     }
     
     $(".btnGuardarProducto").on('click', function (event) {
-        event.preventDefault();
+        event.preventDefault(); //evita el evento del form
         
        
-        if (urlParams.get("id"))
+        if (urlParams.get("id"))//si tiene id que viene del url llama la funcion editar
         {
-            editProduct(urlParams.get("id"))
+            editProduct(urlParams.get("id"))//toma el valor del parametro id
         }else{
 
             addProduct();
@@ -56,7 +59,7 @@ $(document).on('ready', function () {
             description: $('.txtDescription').val(),
             url: $('.txtUrl').val(),
             trade: $('.txtTrade').val(),
-            owner: userLoggedIn[0].id
+            ownerId: userLoggedIn[0].id //el dueno del articulo va ser el usuario que este loggeado
         }
 
         if (validate(product)) {
@@ -65,7 +68,8 @@ $(document).on('ready', function () {
             window.location.href = "./dashboard.html";
         }
     }
-    function editProduct(id) {
+    //
+    function editProduct(id) { //recive un id
         //edit to a database
       const products = JSON.parse(localStorage.getItem('products'));
       
@@ -78,12 +82,12 @@ $(document).on('ready', function () {
               product.trade= $('.txtTrade').val()
             }
         });
-        localStorage.setItem('products', JSON.stringify(products));
+        localStorage.setItem('products', JSON.stringify(products));//no le hace push porque lo esta editando
       }
       window.location.href = "./dashboard.html";
   }
 
-    function validate(newProduct) {
+    function validate(newProduct) {//pone las casillas en rojo si estan en blanco
 
         let valid = true;
 

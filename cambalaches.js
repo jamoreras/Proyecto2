@@ -1,16 +1,17 @@
-$(document).on('ready', function () {
-    function cargarProductos() {
+$(document).on('ready', function () {//esto ejecuta las funciones despues de cargar el html
+    function cargarProductos() {//
        
-        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));
-        let productsDb = JSON.parse(localStorage.getItem('products')); //revisa si existe una lista de products en el local storage
-        if (!productsDb) {
-            productsDb = []; //si esta vacia la crea en blanco en un array
+        let userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));//va al local storage y busca el objeto userloggedIn, que corresponde a los datos del usuario que esta logeado
+        let productsDb = JSON.parse(localStorage.getItem('products')); //va al local storage y buscar la lista de objetos product
+        if (!productsDb) {//si la lista esta vacia ''null''
+            productsDb = []; //se cambia por un arreglo vacio para posteriormente poder agregarle elementos
 
         }
 
         var htmlProduct = "";
-        productsDb.forEach((product,index) => {
-
+        productsDb.forEach((product) => { //recorremos la lista
+         //esto es una concatenacion de la estructura de Div de cada producto de los cambalaches.
+          htmlProduct += '<a href ="./descripcion.html?id='+product.id+'">';
             htmlProduct += '<div class="col-lg-4 col-md-4 col-sm-12 my-3">';
             htmlProduct += '<div class="row">';
             htmlProduct += '    <div class="col-lg-6 col-md-6 col-sm-6">';
@@ -18,18 +19,19 @@ $(document).on('ready', function () {
             htmlProduct += '    <div class="col-lg-6 col-md-6 col-sm-6">';
             htmlProduct += '        <div class="">';
             htmlProduct += '            <p>' + product.name + ' </p>';
-            htmlProduct += '            <div class="">' + getProductOwnerName(product.owner) + '</div>';
-            htmlProduct += '            <p>&nbsp;</p>';
+            htmlProduct += '            <div class="">' + getProductOwnerName(product.ownerId) + '</div>';// esta funcion (common.js) busca por el id el nombre del usario
+            htmlProduct += '            <p></p>';
             htmlProduct += '        </div>';
             htmlProduct += '    </div>';
             htmlProduct += '</div>';
             htmlProduct += '</div>';
+            htmlProduct += '</a>';
 
         })
-        $('.listaProductos')[0].innerHTML = htmlProduct;
+        $('.listaProductos')[0].innerHTML = htmlProduct; // mete los divs pequenos(de los productos) dentro del div padre
 
     }
-    cargarProductos();
+    cargarProductos();// llama la funcion para que cargue los productos
 
    
 });
