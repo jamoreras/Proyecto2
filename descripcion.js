@@ -3,23 +3,23 @@ $(document).on('ready', function () {
     var productId = urlParams.get("id"); // obtiene el valor del parametro id
     if (productId) {
         let productsDb = JSON.parse(localStorage.getItem('products'));// se trae de local storage la lista de productos
-        var existe =false;
+        var existe = false;
         productsDb.forEach((product) => {//recorre la lista
             if (productId == product.id) { //si el id que viene del url es igual a uno de la lista le muestra los datos
                 $('.txtName').text(product.name);
-                $('.txtOwner').text('Ofrecido por: '+getProductOwnerName(product.ownerId));
+                $('.txtOwner').text('Ofrecido por: ' + getProductOwnerName(product.ownerId));
                 $('.txtDescription').text(product.description);
                 $('.txtUrl').attr('src', product.url);
                 $('.txtTrade').text(product.trade);
-                existe=true;
+                existe = true;
             }
-            
+
         });
-        if(!existe){
+        if (!existe) {
             //window.location.href = "./index.html";
             history.back();
         }
-    }else{
+    } else {
         //window.location.href = "./index.html";
         history.back();
     }

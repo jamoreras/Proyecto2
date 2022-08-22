@@ -15,7 +15,7 @@ $(document).on('ready', function () {
         usersDb.forEach((user) => {
             maxID = user.id + 1 // la recorre para buscar el maximoid
         })
-        
+
         const user = { //crea un objeto usuario con los valores de las cajas de texto del form 
             id: maxID,
             name: $('.txtName').val(),
@@ -28,7 +28,7 @@ $(document).on('ready', function () {
             password: $('.txtPassword').val()
         }
 
-        if (validate(user,usersDb)){
+        if (validate(user, usersDb)) {
             usersDb.push(user);// inserta el nuevo objeto en la lista
             localStorage.setItem('users', JSON.stringify(usersDb));// remplaza el obj usuario por la lista modificada
             window.location.href = "./login.html"
@@ -38,7 +38,7 @@ $(document).on('ready', function () {
     function validateUserEmail(userList, email) {
         var validate = true;
         userList.forEach((user) => {
-            if (user.email == email){
+            if (user.email == email) {
                 validate = false;
             }
         })
@@ -48,14 +48,14 @@ $(document).on('ready', function () {
     function validate(newUser, userList) {
 
         let valid = true;
-       
+
         const validateEmail = (email) => {
             return String(email)
-              .toLowerCase()
-              .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-              );
-          };
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        };
 
         if (!newUser.name) {
             $("span.txtName").addClass("visible");
@@ -63,8 +63,8 @@ $(document).on('ready', function () {
             $('span.txtName').attr("aria-hidden", false);
             $('span.txtName').attr("aria-invalid", true);
             valid = false;
-          }
-        else{
+        }
+        else {
             $("span.txtName").removeClass("visible");
             $('.txtName').removeClass("invalid");
             $('span.txtName').attr("aria-hidden", true);
@@ -77,7 +77,7 @@ $(document).on('ready', function () {
             $('span.txtLastName').attr("aria-invalid", true);
             valid = false;
         }
-        else{
+        else {
             $("span.txtLastName").removeClass("visible");
             $('.txtLastName').removeClass("invalid");
             $('span.txtLastName').attr("aria-hidden", true);
@@ -90,12 +90,12 @@ $(document).on('ready', function () {
             $('span.txtAddress').attr("aria-invalid", true);
             valid = false;
         }
-        else{
+        else {
             $("span.txtAddress").removeClass("visible");
             $('.txtAddress').removeClass("invalid");
             $('span.txtAddress').attr("aria-hidden", true);
             $('span.txtAddress').attr("aria-invalid", false);
-        }     
+        }
         if (!newUser.city) {
             $("span.txtCity").addClass("visible");
             $('.txtCity').addClass("invalid");
@@ -103,7 +103,7 @@ $(document).on('ready', function () {
             $('span.txtCity').attr("aria-invalid", true);
             valid = false;
         }
-        else{
+        else {
             $("span.txtCity").removeClass("visible");
             $('.txtCity').removeClass("invalid");
             $('span.txtCity').attr("aria-hidden", true);
@@ -117,9 +117,8 @@ $(document).on('ready', function () {
             $('span.txtEmail').attr("aria-invalid", true);
             valid = false;
         }
-        else{
-            if(!validateUserEmail(userList, newUser.email))
-            {
+        else {
+            if (!validateUserEmail(userList, newUser.email)) {
                 $("span.txtEmail").text("Ya existe un usuario con este correo");
                 $("span.txtEmail").addClass("visible");
                 $('.txtEmail').addClass("invalid");
@@ -127,8 +126,7 @@ $(document).on('ready', function () {
                 $('span.txtEmail').attr("aria-invalid", true);
                 valid = false;
             }
-            else
-            {
+            else {
                 $("span.txtEmail").removeClass("visible");
                 $('.txtEmail').removeClass("invalid");
                 $('span.txtEmail').attr("aria-hidden", true);
@@ -142,7 +140,7 @@ $(document).on('ready', function () {
             $('span.txtPassword').attr("aria-invalid", true);
             valid = false;
         }
-        else{
+        else {
             $("span.txtPassword").removeClass("visible");
             $('.txtPassword').removeClass("invalid");
             $('span.txtPassword').attr("aria-hidden", true);
@@ -151,7 +149,7 @@ $(document).on('ready', function () {
 
 
         return valid;
-      }
-      
+    }
+
 
 });

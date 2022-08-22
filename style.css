@@ -189,17 +189,17 @@ select.width-50 {
 }
 
 
-  form span {
+form span {
     display: none;
     text-align: left;
     font-size: 1em;
-    color:red;
-  }
-  
-  span.visible {
+    color: red;
+}
+
+span.visible {
     display: block;
-  }
-  
-  input.invalid {
+}
+
+input.invalid {
     border-color: red;
-  }
+}
